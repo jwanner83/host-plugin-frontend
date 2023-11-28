@@ -1,0 +1,26 @@
+{
+  "name": "@claflow/server",
+  "version": "0.0.1",
+  "type": "module",
+  "scripts": {
+    "start": "node ./bin/claflow.server.mjs",
+    "serve": "node --watch ./bin/claflow.server.mjs",
+    "build": "rollup -c"
+  },
+  "dependencies": {
+    "@rollup/plugin-json": "^6.0.1",
+    "chokidar": "^3.5.3",
+    "decompress": "^4.2.1",
+    "h3": "^1.9.0",
+    "rollup": "^4.6.0",
+    "rollup-plugin-esbuild": "^6.1.0",
+    "serve-static": "^1.15.0"
+  },
+  "devDependencies": {
+    "@types/decompress": "^4.2.7",
+    "@types/node": "^20.10.0",
+    "@types/serve-static": "^1.15.5",
+    "rollup-plugin-tsconfig-paths": "^1.5.2",
+    "typescript": "^5.2.2"
+  }
+}

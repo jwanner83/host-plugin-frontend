@@ -1,0 +1,14 @@
+{
+  "pages": [
+    {
+      "title": "Home",
+      "url": "/",
+      "layout": "full"
+    },
+    {
+      "title": "Counter",
+      "url": "/counter",
+      "layout": "1-1"
+    }
+  ]
+}

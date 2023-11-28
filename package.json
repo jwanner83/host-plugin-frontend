@@ -1,0 +1,6 @@
+{
+  "name": "host-plugin-frontend",
+  "description": "proof of concept for a host plugin frontend",
+  "version": "0.0.1",
+  "private": true
+}

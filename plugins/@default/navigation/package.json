@@ -1,0 +1,15 @@
+{
+  "name": "@default/navigation",
+  "private": true,
+  "version": "0.0.1",
+  "type": "module",
+  "scripts": {
+    "build": "claflow package"
+  },
+  "devDependencies": {
+    "@claflow/cli": "workspace:^"
+  },
+  "plugin": {
+    "type": "navigation"
+  }
+}

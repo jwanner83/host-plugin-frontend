@@ -1,7 +1,6 @@
 enum PluginTypes {
-  REQUIRED = '@required',
-  DEFAULT = '@default',
-  CUSTOMER = '@customer'
+  NAVIGATION = 'navigation',
+  WIDGET = 'widget',
 }
 
 export default PluginTypes

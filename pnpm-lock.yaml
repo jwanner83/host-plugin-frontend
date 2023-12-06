@@ -19,6 +19,9 @@ importers:
       react-dom:
         specifier: ^18.2.0
         version: 18.2.0(react@18.2.0)
+      react-router-dom:
+        specifier: ^6.20.1
+        version: 6.20.1(react-dom@18.2.0)(react@18.2.0)
       vite-plugin-top-level-await:
         specifier: ^1.3.1
         version: 1.3.1(vite@5.0.2)
@@ -77,6 +80,9 @@ importers:
       chokidar:
         specifier: ^3.5.3
         version: 3.5.3
+      compare-versions:
+        specifier: ^6.1.0
+        version: 6.1.0
       decompress:
         specifier: ^4.2.1
         version: 4.2.1
@@ -109,7 +115,7 @@ importers:
         specifier: ^5.2.2
         version: 5.3.2
 
-  host/server/plugins/@default/amount-0.0.1:
+  host/server/plugins/@customer/widget/hello-0.0.1:
     dependencies:
       react:
         specifier: ^18.2.0
@@ -120,7 +126,7 @@ importers:
     devDependencies:
       '@claflow/cli':
         specifier: workspace:^
-        version: link:../../../../../library/cli
+        version: link:../../../../../../library/cli
       '@originjs/vite-plugin-federation':
         specifier: ^1.3.3
         version: 1.3.3
@@ -164,7 +170,13 @@ importers:
         specifier: ^5.0.0
         version: 5.0.2(@types/node@20.10.0)
 
-  host/server/plugins/@default/increment-0.0.1:
+  host/server/plugins/@default/navigation/navigation-0.0.1:
+    devDependencies:
+      '@claflow/cli':
+        specifier: workspace:^
+        version: link:../../../../../../library/cli
+
+  host/server/plugins/@default/widget/amount-0.0.1:
     dependencies:
       react:
         specifier: ^18.2.0
@@ -175,7 +187,117 @@ importers:
     devDependencies:
       '@claflow/cli':
         specifier: workspace:^
-        version: link:../../../../../library/cli
+        version: link:../../../../../../library/cli
+      '@originjs/vite-plugin-federation':
+        specifier: ^1.3.3
+        version: 1.3.3
+      '@types/react':
+        specifier: ^18.2.37
+        version: 18.2.38
+      '@types/react-dom':
+        specifier: ^18.2.15
+        version: 18.2.17
+      '@typescript-eslint/eslint-plugin':
+        specifier: ^6.10.0
+        version: 6.12.0(@typescript-eslint/parser@6.12.0)(eslint@8.54.0)(typescript@5.3.2)
+      '@typescript-eslint/parser':
+        specifier: ^6.10.0
+        version: 6.12.0(eslint@8.54.0)(typescript@5.3.2)
+      '@vitejs/plugin-react-swc':
+        specifier: ^3.5.0
+        version: 3.5.0(vite@5.0.2)
+      autoprefixer:
+        specifier: ^10.4.16
+        version: 10.4.16(postcss@8.4.31)
+      eslint:
+        specifier: ^8.53.0
+        version: 8.54.0
+      eslint-plugin-react-hooks:
+        specifier: ^4.6.0
+        version: 4.6.0(eslint@8.54.0)
+      eslint-plugin-react-refresh:
+        specifier: ^0.4.4
+        version: 0.4.4(eslint@8.54.0)
+      postcss:
+        specifier: ^8.4.31
+        version: 8.4.31
+      tailwindcss:
+        specifier: ^3.3.5
+        version: 3.3.5
+      typescript:
+        specifier: ^5.2.2
+        version: 5.3.2
+      vite:
+        specifier: ^5.0.0
+        version: 5.0.2(@types/node@20.10.0)
+
+  host/server/plugins/@default/widget/hello-0.0.1:
+    dependencies:
+      react:
+        specifier: ^18.2.0
+        version: 18.2.0
+      react-dom:
+        specifier: ^18.2.0
+        version: 18.2.0(react@18.2.0)
+    devDependencies:
+      '@claflow/cli':
+        specifier: workspace:^
+        version: link:../../../../../../library/cli
+      '@originjs/vite-plugin-federation':
+        specifier: ^1.3.3
+        version: 1.3.3
+      '@types/react':
+        specifier: ^18.2.37
+        version: 18.2.38
+      '@types/react-dom':
+        specifier: ^18.2.15
+        version: 18.2.17
+      '@typescript-eslint/eslint-plugin':
+        specifier: ^6.10.0
+        version: 6.12.0(@typescript-eslint/parser@6.12.0)(eslint@8.54.0)(typescript@5.3.2)
+      '@typescript-eslint/parser':
+        specifier: ^6.10.0
+        version: 6.12.0(eslint@8.54.0)(typescript@5.3.2)
+      '@vitejs/plugin-react-swc':
+        specifier: ^3.5.0
+        version: 3.5.0(vite@5.0.2)
+      autoprefixer:
+        specifier: ^10.4.16
+        version: 10.4.16(postcss@8.4.31)
+      eslint:
+        specifier: ^8.53.0
+        version: 8.54.0
+      eslint-plugin-react-hooks:
+        specifier: ^4.6.0
+        version: 4.6.0(eslint@8.54.0)
+      eslint-plugin-react-refresh:
+        specifier: ^0.4.4
+        version: 0.4.4(eslint@8.54.0)
+      postcss:
+        specifier: ^8.4.31
+        version: 8.4.31
+      tailwindcss:
+        specifier: ^3.3.5
+        version: 3.3.5
+      typescript:
+        specifier: ^5.2.2
+        version: 5.3.2
+      vite:
+        specifier: ^5.0.0
+        version: 5.0.2(@types/node@20.10.0)
+
+  host/server/plugins/@default/widget/increment-0.0.1:
+    dependencies:
+      react:
+        specifier: ^18.2.0
+        version: 18.2.0
+      react-dom:
+        specifier: ^18.2.0
+        version: 18.2.0(react@18.2.0)
+    devDependencies:
+      '@claflow/cli':
+        specifier: workspace:^
+        version: link:../../../../../../library/cli
       '@originjs/vite-plugin-federation':
         specifier: ^1.3.3
         version: 1.3.3
@@ -299,7 +421,117 @@ importers:
         specifier: ^6.1.0
         version: 6.1.0(esbuild@0.19.8)(rollup@4.6.0)
 
+  plugins/@customer/hello:
+    dependencies:
+      react:
+        specifier: ^18.2.0
+        version: 18.2.0
+      react-dom:
+        specifier: ^18.2.0
+        version: 18.2.0(react@18.2.0)
+    devDependencies:
+      '@claflow/cli':
+        specifier: workspace:^
+        version: link:../../../library/cli
+      '@originjs/vite-plugin-federation':
+        specifier: ^1.3.3
+        version: 1.3.3
+      '@types/react':
+        specifier: ^18.2.37
+        version: 18.2.38
+      '@types/react-dom':
+        specifier: ^18.2.15
+        version: 18.2.17
+      '@typescript-eslint/eslint-plugin':
+        specifier: ^6.10.0
+        version: 6.12.0(@typescript-eslint/parser@6.12.0)(eslint@8.54.0)(typescript@5.3.2)
+      '@typescript-eslint/parser':
+        specifier: ^6.10.0
+        version: 6.12.0(eslint@8.54.0)(typescript@5.3.2)
+      '@vitejs/plugin-react-swc':
+        specifier: ^3.5.0
+        version: 3.5.0(vite@5.0.2)
+      autoprefixer:
+        specifier: ^10.4.16
+        version: 10.4.16(postcss@8.4.31)
+      eslint:
+        specifier: ^8.53.0
+        version: 8.54.0
+      eslint-plugin-react-hooks:
+        specifier: ^4.6.0
+        version: 4.6.0(eslint@8.54.0)
+      eslint-plugin-react-refresh:
+        specifier: ^0.4.4
+        version: 0.4.4(eslint@8.54.0)
+      postcss:
+        specifier: ^8.4.31
+        version: 8.4.31
+      tailwindcss:
+        specifier: ^3.3.5
+        version: 3.3.5
+      typescript:
+        specifier: ^5.2.2
+        version: 5.3.2
+      vite:
+        specifier: ^5.0.0
+        version: 5.0.2(@types/node@20.10.0)
+
   plugins/@default/amount:
+    dependencies:
+      react:
+        specifier: ^18.2.0
+        version: 18.2.0
+      react-dom:
+        specifier: ^18.2.0
+        version: 18.2.0(react@18.2.0)
+    devDependencies:
+      '@claflow/cli':
+        specifier: workspace:^
+        version: link:../../../library/cli
+      '@originjs/vite-plugin-federation':
+        specifier: ^1.3.3
+        version: 1.3.3
+      '@types/react':
+        specifier: ^18.2.37
+        version: 18.2.38
+      '@types/react-dom':
+        specifier: ^18.2.15
+        version: 18.2.17
+      '@typescript-eslint/eslint-plugin':
+        specifier: ^6.10.0
+        version: 6.12.0(@typescript-eslint/parser@6.12.0)(eslint@8.54.0)(typescript@5.3.2)
+      '@typescript-eslint/parser':
+        specifier: ^6.10.0
+        version: 6.12.0(eslint@8.54.0)(typescript@5.3.2)
+      '@vitejs/plugin-react-swc':
+        specifier: ^3.5.0
+        version: 3.5.0(vite@5.0.2)
+      autoprefixer:
+        specifier: ^10.4.16
+        version: 10.4.16(postcss@8.4.31)
+      eslint:
+        specifier: ^8.53.0
+        version: 8.54.0
+      eslint-plugin-react-hooks:
+        specifier: ^4.6.0
+        version: 4.6.0(eslint@8.54.0)
+      eslint-plugin-react-refresh:
+        specifier: ^0.4.4
+        version: 0.4.4(eslint@8.54.0)
+      postcss:
+        specifier: ^8.4.31
+        version: 8.4.31
+      tailwindcss:
+        specifier: ^3.3.5
+        version: 3.3.5
+      typescript:
+        specifier: ^5.2.2
+        version: 5.3.2
+      vite:
+        specifier: ^5.0.0
+        version: 5.0.2(@types/node@20.10.0)
+
+  plugins/@default/hello:
     dependencies:
       react:
         specifier: ^18.2.0
@@ -764,6 +996,11 @@ packages:
       estree-walker: 3.0.3
       magic-string: 0.27.0
     dev: true
+
+  /@remix-run/router@1.13.1:
+    resolution: {integrity: sha512-so+DHzZKsoOcoXrILB4rqDkMDy7NLMErRdOxvzvOKb507YINKUP4Di+shbTZDhSE/pBZ+vr7XGIpcOO0VLSA+Q==}
+    engines: {node: '>=14.0.0'}
+    dev: false
 
   /@rollup/plugin-commonjs@25.0.7(rollup@4.6.0):
     resolution: {integrity: sha512-nEvcR+LRjEjsaSsc4x3XZfCCvZIaSMenZu/OiwOKGN2UhQpAYI7ru7czFvyWbErlpoGjnSX3D5Ch5FcMA3kRWQ==}
@@ -1507,6 +1744,10 @@ packages:
   /commondir@1.0.1:
     resolution: {integrity: sha512-W9pAhw0ja1Edb5GVdIF1mjZw/ASI0AlShXM83UUGe2DVr5TdAPEA1OA8m/g8zWp9x6On7gqufY+FatDbC3MDQg==}
     dev: true
+
+  /compare-versions@6.1.0:
+    resolution: {integrity: sha512-LNZQXhqUvqUTotpZ00qLSaify3b4VFD588aRr8MKFw4CMUr98ytzCW5wDH5qx/DEY5kCDXcbcRuCqL0szEf2tg==}
+    dev: false
 
   /compress-commons@5.0.1:
     resolution: {integrity: sha512-MPh//1cERdLtqwO3pOFLeXtpuai0Y2WCd5AhtKxznqM7WtaMYaOEMSgn45d9D10sIHSfIKE603HlOp8OPGrvag==}
@@ -2653,6 +2894,29 @@ packages:
       loose-envify: 1.4.0
       react: 18.2.0
       scheduler: 0.23.0
+    dev: false
+
+  /react-router-dom@6.20.1(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-npzfPWcxfQN35psS7rJgi/EW0Gx6EsNjfdJSAk73U/HqMEJZ2k/8puxfwHFgDQhBGmS3+sjnGbMdMSV45axPQw==}
+    engines: {node: '>=14.0.0'}
+    peerDependencies:
+      react: '>=16.8'
+      react-dom: '>=16.8'
+    dependencies:
+      '@remix-run/router': 1.13.1
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+      react-router: 6.20.1(react@18.2.0)
+    dev: false
+
+  /react-router@6.20.1(react@18.2.0):
+    resolution: {integrity: sha512-ccvLrB4QeT5DlaxSFFYi/KR8UMQ4fcD8zBcR71Zp1kaYTC5oJKYAp1cbavzGrogwxca+ubjkd7XjFZKBW8CxPA==}
+    engines: {node: '>=14.0.0'}
+    peerDependencies:
+      react: '>=16.8'
+    dependencies:
+      '@remix-run/router': 1.13.1
+      react: 18.2.0
     dev: false
 
   /react@18.2.0:

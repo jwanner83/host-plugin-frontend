@@ -3,11 +3,11 @@ import {
   watch
 } from 'chokidar'
 import decompress from 'decompress'
-import { mkdir } from 'node:fs/promises'
+import { mkdir, readdir, rm } from 'node:fs/promises'
 import { join } from 'node:path'
-import { rm } from 'fs/promises'
 import PluginScopes from '@/enums/PluginScopes'
 import PluginTypes from '@/enums/PluginTypes'
+import { compareVersions } from 'compare-versions'
 
 export default class DeploymentHandler {
   /**
@@ -75,10 +75,19 @@ export default class DeploymentHandler {
         }
 
         try {
-          await rm(join(this.destination, join(scope, type, `${name}-${version}`)), {
-            recursive: true,
-            force: true
-          })
+          const directories = await readdir(join(this.destination, join(scope, type)))
+          for (const directory of directories) {
+            const localVersion = directory.split('-')[directory.split('-').length - 1]
+
+            if (compareVersions(version, localVersion) === 1 || compareVersions(version, localVersion) === 0) {
+              await rm(join(this.destination, join(scope, type, directory)), {
+                recursive: true,
+                force: true
+              })
+
+              console.info(`removed ${directory} (${scope}) (${type}) from ${join(this.destination, join(scope, type, directory))}`)
+            }
+          }
         } catch {
           // ignore
         }

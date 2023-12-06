@@ -7,7 +7,7 @@ export default function Application() {
   }
 
   return (
-    <div className="bg-slate-200 p-5">
+    <div className="bg-slate-200 p-5 w-full">
       <h2 className="mb-0">Increment</h2>
       <p className="mt-2">Change the amount in the Home plugin and see the changes here.</p>
       <div className="card">

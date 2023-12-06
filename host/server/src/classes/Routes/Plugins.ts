@@ -1,7 +1,7 @@
 import SuperRoute from '@/classes/Routes/SuperRoute'
 import ServerMethods from '@/enums/ServerMethods'
-import { H3Event } from 'h3'
-import { readdir, stat } from 'node:fs/promises'
+import { getQuery, getRouterParam, H3Event } from 'h3'
+import { readdir, readFile, stat } from 'node:fs/promises'
 import path from 'node:path'
 import PluginScopes from '@/enums/PluginScopes'
 import PluginTypes from '@/enums/PluginTypes'
@@ -11,18 +11,38 @@ export default class Plugins extends SuperRoute {
   method = ServerMethods.GET
 
   handler = async (event: H3Event) => {
-    const defaultPlugins = await this.getPlugins(PluginScopes.DEFAULT)
-    const customerPlugins = await this.getPlugins(PluginScopes.CUSTOMER)
+    const query = getQuery(event)
 
-    const plugins = [...customerPlugins]
-    for (const defaultPlugin of defaultPlugins) {
-      if (!customerPlugins.find((customerPlugin) => customerPlugin.name === defaultPlugin.name)) {
-        plugins.push(defaultPlugin)
+    const defaultPlugins = await this.getPluginForType(PluginScopes.DEFAULT, query.type as PluginTypes)
+    const customerPlugins = await this.getPluginForType(PluginScopes.CUSTOMER, query.type as PluginTypes)
+
+    if (query.all) {
+      const plugins = [...customerPlugins]
+      for (const defaultPlugin of defaultPlugins) {
+        if (customerPlugins.find((customerPlugin) => customerPlugin.name === defaultPlugin.name)) {
+          plugins.push({
+            ...defaultPlugin,
+            overwritten: true
+          })
+        } else {
+          plugins.push(defaultPlugin)
+        }
       }
-    }
 
-    return {
-      plugins
+      return {
+        plugins
+      }
+    } else {
+      const plugins = [...customerPlugins]
+      for (const defaultPlugin of defaultPlugins) {
+        if (!customerPlugins.find((customerPlugin) => customerPlugin.name === defaultPlugin.name)) {
+          plugins.push(defaultPlugin)
+        }
+      }
+
+      return {
+        plugins
+      }
     }
   }
 
@@ -51,13 +71,38 @@ export default class Plugins extends SuperRoute {
       return stats.isDirectory()
     })
 
-    plugins.push(...directories.map((directory) => ({
-      type: scope,
-      name: directory.split('-').slice(0, directory.split('-').length - 1).join('-'),
-      version: directory.split('-')[0],
-      entry: path.join(scope, type, directory, 'remote-entry.js')
-    })))
+    if (type === PluginTypes.NAVIGATION) {
+      for (const directory of directories) {
+        const navigation = await readFile(path.join('plugins', scope, type, directory, 'navigation.json'), 'utf-8')
+
+        plugins.push({
+          scope: scope,
+          name: directory.split('-').slice(0, directory.split('-').length - 1).join('-'),
+          version: directory.split('-')[directory.split('-').length - 1],
+          entry: path.join(scope, type, directory, 'navigation.json'),
+          navigation: JSON.parse(navigation)
+        })
+      }
+    } else if (type === PluginTypes.WIDGET) {
+      for (const directory of directories) {
+        const pack = await readFile(path.join('plugins', scope, type, directory, 'package.json'), 'utf-8')
+        const packageJson = JSON.parse(pack)
+
+        plugins.push({
+          scope: scope,
+          name: directory.split('-').slice(0, directory.split('-').length - 1).join('-'),
+          version: directory.split('-')[directory.split('-').length - 1],
+          entry: path.join(scope, type, directory, 'remote-entry.js'),
+          plugin: packageJson.plugin
+        })
+      }
+
+    }
 
     return plugins
+  }
+
+  private async getNavigationPlugin (scope: PluginScopes) {
+
   }
 }

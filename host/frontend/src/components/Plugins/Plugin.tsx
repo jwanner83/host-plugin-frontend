@@ -1,5 +1,5 @@
 import { memo, Suspense } from 'react'
-import useGetFederatedPlugin from '../hooks/useGetFederatedPlugin.ts'
+import useGetFederatedPlugin from '../../hooks/useGetFederatedPlugin.ts'
 
 interface Props {
   url: string

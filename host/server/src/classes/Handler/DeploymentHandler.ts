@@ -77,6 +77,10 @@ export default class DeploymentHandler {
         try {
           const directories = await readdir(join(this.destination, join(scope, type)))
           for (const directory of directories) {
+            const localName = directory.split('-').slice(0, directory.split('-').length - 1).join('-')
+            if (localName !== name) {
+              continue
+            }
             const localVersion = directory.split('-')[directory.split('-').length - 1]
 
             if (compareVersions(version, localVersion) === 1 || compareVersions(version, localVersion) === 0) {
